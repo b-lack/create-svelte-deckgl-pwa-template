@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "bin": "bin/cli.js",
   "scripts": {
-    "dev": "rollup --config rollup.config.js -w"
+    "dev": "rollup --config rollup.config.dev.js -w",
+    "build": "rollup --config rollup.config.build.js -w"
   },
   "repository": {
     "type": "git",

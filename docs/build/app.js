@@ -1,5 +1,3 @@
-
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 function noop$5() { }
 function run(fn) {
     return fn();
@@ -3601,111 +3599,7 @@ var log$2 = new Log({
   id: 'deck'
 });
 
-const logState = {
-  attributeUpdateMessages: []
-};
-const LOG_LEVEL_MAJOR_UPDATE = 1;
-const LOG_LEVEL_MINOR_UPDATE = 2;
-const LOG_LEVEL_UPDATE_DETAIL = 3;
-const LOG_LEVEL_INFO = 4;
-const LOG_LEVEL_DRAW = 2;
-const getLoggers = log => ({
-  'layer.changeFlag': (layer, key, flags) => {
-    log.log(LOG_LEVEL_UPDATE_DETAIL, "".concat(layer.id, " ").concat(key, ": "), flags[key])();
-  },
-  'layer.initialize': layer => {
-    log.log(LOG_LEVEL_MAJOR_UPDATE, "Initializing ".concat(layer))();
-  },
-  'layer.update': (layer, needsUpdate) => {
-    if (needsUpdate) {
-      const flags = layer.getChangeFlags();
-      log.log(LOG_LEVEL_MINOR_UPDATE, "Updating ".concat(layer, " because: ").concat(Object.keys(flags).filter(key => flags[key]).join(', ')))();
-    } else {
-      log.log(LOG_LEVEL_INFO, "".concat(layer, " does not need update"))();
-    }
-  },
-  'layer.matched': (layer, changed) => {
-    if (changed) {
-      log.log(LOG_LEVEL_INFO, "Matched ".concat(layer, ", state transfered"))();
-    }
-  },
-  'layer.finalize': layer => {
-    log.log(LOG_LEVEL_MAJOR_UPDATE, "Finalizing ".concat(layer))();
-  },
-  'compositeLayer.renderLayers': (layer, updated, subLayers) => {
-    if (updated) {
-      log.log(LOG_LEVEL_MINOR_UPDATE, "Composite layer rendered new subLayers ".concat(layer), subLayers)();
-    } else {
-      log.log(LOG_LEVEL_INFO, "Composite layer reused subLayers ".concat(layer), subLayers)();
-    }
-  },
-  'layerManager.setLayers': (layerManager, updated, layers) => {
-    if (updated) {
-      log.log(LOG_LEVEL_MINOR_UPDATE, "Updating ".concat(layers.length, " deck layers"))();
-    }
-  },
-  'layerManager.activateViewport': (layerManager, viewport) => {
-    log.log(LOG_LEVEL_UPDATE_DETAIL, 'Viewport changed', viewport)();
-  },
-  'attributeManager.invalidate': (attributeManager, trigger, attributeNames) => {
-    log.log(LOG_LEVEL_MAJOR_UPDATE, attributeNames ? "invalidated attributes ".concat(attributeNames, " (").concat(trigger, ") for ").concat(attributeManager.id) : "invalidated all attributes for ".concat(attributeManager.id))();
-  },
-  'attributeManager.updateStart': attributeManager => {
-    logState.attributeUpdateMessages.length = 0;
-    logState.attributeManagerUpdateStart = Date.now();
-  },
-  'attributeManager.updateEnd': (attributeManager, numInstances) => {
-    const timeMs = Math.round(Date.now() - logState.attributeManagerUpdateStart);
-    log.groupCollapsed(LOG_LEVEL_MINOR_UPDATE, "Updated attributes for ".concat(numInstances, " instances in ").concat(attributeManager.id, " in ").concat(timeMs, "ms"))();
-
-    for (const updateMessage of logState.attributeUpdateMessages) {
-      log.log(LOG_LEVEL_UPDATE_DETAIL, updateMessage)();
-    }
-
-    log.groupEnd(LOG_LEVEL_MINOR_UPDATE)();
-  },
-  'attribute.updateStart': attribute => {
-    logState.attributeUpdateStart = Date.now();
-  },
-  'attribute.allocate': (attribute, numInstances) => {
-    const message = "".concat(attribute.id, " allocated ").concat(numInstances);
-    logState.attributeUpdateMessages.push(message);
-  },
-  'attribute.updateEnd': (attribute, numInstances) => {
-    const timeMs = Math.round(Date.now() - logState.attributeUpdateStart);
-    const message = "".concat(attribute.id, " updated ").concat(numInstances, " in ").concat(timeMs, "ms");
-    logState.attributeUpdateMessages.push(message);
-  },
-  'deckRenderer.renderLayers': (deckRenderer, renderStats, opts) => {
-    const {
-      pass,
-      redrawReason,
-      stats
-    } = opts;
-
-    for (const status of renderStats) {
-      const {
-        totalCount,
-        visibleCount,
-        compositeCount,
-        pickableCount
-      } = status;
-      const primitiveCount = totalCount - compositeCount;
-      const hiddenCount = primitiveCount - visibleCount;
-      log.log(LOG_LEVEL_DRAW, "RENDER #".concat(deckRenderer.renderCount, "   ").concat(visibleCount, " (of ").concat(totalCount, " layers) to ").concat(pass, " because ").concat(redrawReason, "   (").concat(hiddenCount, " hidden, ").concat(compositeCount, " composite ").concat(pickableCount, " pickable)"))();
-
-      if (stats) {
-        stats.get('Redraw Layers').add(visibleCount);
-      }
-    }
-  }
-});
-
 let loggers = {};
-
-{
-  loggers = getLoggers(log$2);
-}
 
 function register(handlers) {
   loggers = handlers;
