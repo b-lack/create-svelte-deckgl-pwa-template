@@ -9,7 +9,7 @@ import livereload from 'rollup-plugin-livereload'
 export default {
     input: 'src/index.js',
     output: {
-        file: 'docs/dist/app.js'
+        file: 'docs/build/app.js'
     },
     plugins: [
         svelte({
