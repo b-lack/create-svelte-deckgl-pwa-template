@@ -1,9 +1,11 @@
 export default  {
-    DEFAULT_GEOJSON: './data/verbiss_2021.geojson'
+    // Alternative: ./data/verbiss_2021.geojson
+    DEFAULT_GEOJSON: './data/example-values.geojson'
 };
 
 const deckGlConfig = {
-    GEOJSON_PROPERTY_NAME: 'verbissproz_ob_drittel',
+    // Alternative: verbissproz_ob_drittel
+    GEOJSON_PROPERTY_NAME: 'value',
     GEOJSON_PROPERTY_NAME_READABLE: 'Verbissprozent',
     GEOJSON_PROPERTY_UNIT: '%',
     DEFAULT_HEXAGON_RADIUS: 500,
