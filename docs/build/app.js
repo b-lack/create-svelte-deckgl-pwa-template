@@ -316,10 +316,7 @@ class SvelteComponent {
 }
 
 var ENV = {
-    DEFAULT_GEOJSON: './data/verbiss_2021.geojson',
-    GEOJSON_PROPERTY_NAME: 'verbissproz_ob_drittel',
-    DEFAULT_HEXAGON_RADIUS: 500,
-
+    DEFAULT_GEOJSON: './data/verbiss_2021.geojson'
 };
 
 const deckGlConfig = {
