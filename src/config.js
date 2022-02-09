@@ -14,4 +14,9 @@ const deckGlConfig = {
     ]
 }
 
-export {deckGlConfig};
+const persionalization = {
+    LOGO_URL: 'https://raw.githubusercontent.com/b-lack/gruenecho/master/img/gruenecho_logo_white.svg',
+    PAGE_URL: 'https://gruenecho.de/en'
+}
+
+export {deckGlConfig, persionalization};

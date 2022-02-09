@@ -1,0 +1,29 @@
+{
+  "short_name": "WebGis Template",
+  "name": "Svelte Deckgl PWA Template",
+  "description": "Template for creating svelte based geospatial progressive web apps.",
+  "icons": [
+    {
+      "src": "asset/favicon/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "asset/favicon/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "asset/favicon/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./",
+  "background_color": "#333",
+  "display": "standalone",
+  "scope": "./",
+  "theme_color": "#8B008B"
+}
