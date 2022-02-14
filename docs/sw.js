@@ -4,6 +4,7 @@ var urlsToCache = [
   './manifest.json',
   './',
   './build/app.js',
+  './data/example-values.geojson',
   './data/verbiss_2021.geojson',
   './asset/favicon/android-chrome-192x192.png',
   './asset/favicon/favicon-32x32.png',
@@ -21,7 +22,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', (e) => {
   e.respondWith((async () => {
     const r = await caches.match(e.request);
-    if (r) { return r; }
+    //if (r) { return r; }
     const response = await fetch(e.request);
     const cache = await caches.open(CACHE_NAME);
     cache.put(e.request, response.clone());
