@@ -1,4 +1,4 @@
-# Svelte Deckgl PWA Template
+# Svelte Deckgl/OpenLayers/Leaflet PWA Template
 
 Template for creating svelte based geospatial progressive web apps.
 
@@ -7,7 +7,7 @@ Template for creating svelte based geospatial progressive web apps.
 Download, install dependencies and run application:
 
 ```bash
-npx create-svelte-deckgl-pwa-template my-deckgl-web-gis
+npx create-svelte-deckgl-pwa-template my-web-gis
 ```
 
 ## Run/Rerun
@@ -23,6 +23,7 @@ Change the behavior of the application in `src/config.js` or directly in the sou
 ### default
 
 - `DEFAULT_GEOJSON`: Location to the default displayed geoJson (Points) Example File `docs/data/verbiss_2021.geojson`
+- `FRAMEWORK:`: `deckgl`, `leaflet` or `openlayers`
 
 ### deckGlConfig
 

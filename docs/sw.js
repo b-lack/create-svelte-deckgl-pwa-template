@@ -1,4 +1,4 @@
-var CACHE_NAME = 'sdpwa-1';
+var CACHE_NAME = 'sdpwa-2';
 
 var urlsToCache = [
   './manifest.json',
@@ -22,7 +22,6 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', (e) => {
   e.respondWith((async () => {
     const r = await caches.match(e.request);
-    //if (r) { return r; }
     const response = await fetch(e.request);
     const cache = await caches.open(CACHE_NAME);
     cache.put(e.request, response.clone());

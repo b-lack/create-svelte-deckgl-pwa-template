@@ -1,12 +1,12 @@
 {
   "name": "create-svelte-deckgl-pwa-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A template for creating svelte based geospatial progressive web apps.",
   "main": "src/index.js",
   "bin": "bin/cli.js",
   "scripts": {
     "dev": "rollup --config rollup.config.dev.js -w",
-    "build": "rollup --config rollup.config.build.js -w"
+    "build": "rollup --config rollup.config.build.js"
   },
   "repository": {
     "type": "git",
