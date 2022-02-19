@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
+import scss from 'rollup-plugin-scss'
 
 
 export default {
@@ -15,7 +16,11 @@ export default {
     plugins: [
         svelte({
             emitCss: false,
-        }), 
+        }),
+        scss({
+            output: true,
+            sourceMap: true
+        }),
         resolve({
             browser: true
         }),

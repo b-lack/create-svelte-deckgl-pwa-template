@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/b-lack/web-gis-template.git"
   },
-  "keywords": ["svelte","deckgl", "geojson", "template"],
+  "keywords": [
+    "svelte",
+    "deckgl",
+    "geojson",
+    "template"
+  ],
   "author": "Gerrit Balindt",
   "license": "MIT",
   "devDependencies": {
@@ -23,11 +28,15 @@
     "@turf/center-of-mass": "^6.5.0",
     "deck.gl": "^8.6.7",
     "geojson-validation": "^1.0.2",
+    "leaflet": "^1.7.1",
+    "ol": "^6.12.0",
     "rollup": "^2.66.1",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-svelte": "^7.1.0",
+    "sass": "^1.49.8",
     "svelte": "^3.46.3"
   }
 }

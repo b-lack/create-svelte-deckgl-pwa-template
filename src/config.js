@@ -1,6 +1,10 @@
 export default  {
+
     // Alternative: ./data/verbiss_2021.geojson
-    DEFAULT_GEOJSON: './data/example-values.geojson'
+    DEFAULT_GEOJSON: './data/example-values.geojson',
+
+    // 'deckgl' || 'leaflet' || 'openlayers'
+    FRAMEWORK: 'deckgl'
 };
 
 const deckGlConfig = {
@@ -17,8 +21,10 @@ const deckGlConfig = {
 }
 
 const persionalization = {
+    //	https://frab.fossgis-konferenz.de/2022/img/Logo_Triangulation_online.png
     LOGO_URL: 'https://raw.githubusercontent.com/b-lack/gruenecho/master/img/gruenecho_logo_white.svg',
-    PAGE_URL: 'https://gruenecho.de/en'
+    PAGE_URL: 'https://gruenecho.de/en',
+    REPOSITORY_URL: 'https://github.com/b-lack/create-svelte-deckgl-pwa-template'
 }
 
 export {deckGlConfig, persionalization};
