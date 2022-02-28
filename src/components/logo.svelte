@@ -9,6 +9,7 @@
 <style>
     #logo{
         position: fixed;
+        z-index: 10000;
         bottom: 20px;
         left: 20px;
         height: 75px;

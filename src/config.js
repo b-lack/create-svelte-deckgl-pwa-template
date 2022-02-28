@@ -1,7 +1,6 @@
 export default  {
-
     // Alternative: ./data/verbiss_2021.geojson
-    DEFAULT_GEOJSON: './data/example-values.geojson',
+    DEFAULT_GEOJSON: './data/verbiss_2021.geojson',
 
     // 'deckgl' || 'leaflet' || 'openlayers'
     FRAMEWORK: 'deckgl'
