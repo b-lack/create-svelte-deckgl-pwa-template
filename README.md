@@ -32,3 +32,7 @@ Change the behavior of the application in `src/config.js` or directly in the sou
 - `GEOJSON_PROPERTY_UNIT`: Unit of the property shown in the tooltip.
 - `DEFAULT_HEXAGON_RADIUS`: Radius of the aggregating hexagons shown on the map.
 - `TILE_SERVER`: The tile server to be used as a basemap.
+
+## Video / Presentation
+
+This repository was presented at the "Fossgis2022" conference with a [live demo](https://media.ccc.de/v/fossgis2022-13988-ausschreibung-und-umsetzung-von-open-source-software-im-ffentlichen-dienst#t=2) (in German language).
